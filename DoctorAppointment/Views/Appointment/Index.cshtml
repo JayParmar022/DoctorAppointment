@@ -1,0 +1,107 @@
+﻿@* @{
+    var status = Context.Request.Query["status"];
+
+    var pending = "text-primary";
+    var inprocess = "text-primary";
+    var completed = "text-primary";
+    var approved = "text-primary";
+    var all = "text-primary";
+
+    switch (status)
+    {
+        case "pending":
+            pending = "text-white bg-primary";
+            break;
+
+        case "inprocess":
+            inprocess = "text-white bg-primary";
+            break;
+
+        case "completed":
+            completed = "text-white bg-primary";
+            break;
+
+        case "approved":
+            approved = "text-white bg-primary";
+            break;
+
+        default:
+            all = "text-white bg-primary";
+            break;
+    }
+} *@
+
+<div class="row">
+    <div class="card shadow border-0 my-4">
+        <div class="card-header bg-secondary bg-gradient ml-0 py-3">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Appointment List</h2>
+            </div>
+        </div>
+       @*  <div class="card-body p-4">
+            <div class="d-flex justify-content-between pb-5 pt-2">
+                <span></span>
+                <ul class="list-group list-group-horizontal-sm">
+                    <li class="list-group-item">
+                        <a class="px-3 py-2 rounded @inprocess" style="text-decoration:none;" asp-controller="Appointment" asp-action="Index" asp-route-status="inprocess">In Process</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a class="px-3 py-2 rounded @pending" style="text-decoration:none;" asp-controller="Appointment" asp-action="Index" asp-route-status="pending">Payment Pending</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a class="px-3 py-2 rounded @completed" style="text-decoration:none;" asp-controller="Appointment" asp-action="Index" asp-route-status="completed">Completed</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a class="px-3 py-2 rounded @approved" style="text-decoration:none;" asp-controller="Appointment" asp-action="Index" asp-route-status="approved">Approved</a>
+                    </li>
+                    <li class="list-group-item">
+                        <a class="px-3 py-2 rounded @all" style="text-decoration:none;" asp-controller="Appointment" asp-action="Index" asp-route-status="all">All</a>
+                    </li>
+                </ul>
+            </div> *@
+            <table id="tblData" class="table table-bordered table-striped text-center" style="width:100%">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Patient Name</th>
+                        <th>Email</th>
+
+                        <th>Appointment Date</th>
+                        <th>From Time</th>
+                        <th>To Time</th>
+                        <th>Doctor Name</th>
+                        <th>Total Charge</th>
+                        <th>GST</th>
+                        <th>Service Charge</th>
+                        <th>Total Amount</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+<div id="pieChart"></div>
+<div id="dateChart"></div>
+
+
+@section Scripts
+{
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+            integrity="sha512-894ye88kac2W0nMj9+8jhAXgF4ez69H0E2J7C1eZtxbKxt1oC2qxK7Fe9vK19GXBxI7LV5nDYL+4V5XH/ZjAcw=="
+            crossorigin="anonymous">
+    </script>
+
+    <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+    <!-- DataTables JS -->
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+    <!-- Your custom JavaScript -->
+    <script src="~/js/Appointment.js"></script>
+
+}
+
+
+
