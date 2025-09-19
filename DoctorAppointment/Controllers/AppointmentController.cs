@@ -40,10 +40,10 @@ namespace DoctorAppointment.Controllers
                     aId = a.AId,
                     pname = a.Pname,
                     email = a.Email,
-                    doctorMaster = new { name = a.DoctorMaster.Name }, // Ensure this field exists
+                    doctorMaster = new { name = a.DoctorMaster.Name }, 
                     date = a.Date,
                     fromtime = a.Fromtime,
-                    totime = a.Totime,
+                    totime = a.Totime, 
                     totalCharge = a.TotalCharge,
                     gst = a.GST,
                     serviceCharge = a.ServiceCharge,
